@@ -9,6 +9,18 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.carcontrol.mobile"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "com.carcontrol.mobile"
+    },
+    "cordova-universal-links-plugin": {
+      "PACKAGE_NAME": "com.carcontrol.mobile"
+    },
+    "cordova-plugin-browsertab": {
+      "PACKAGE_NAME": "com.carcontrol.mobile"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.carcontrol.mobile"
     }
   },
   "dependent_plugins": {}

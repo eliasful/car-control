@@ -23,6 +23,7 @@ module.exports = function(defaults) {
   app.import('vendor/bootstrap/bootstrap.min.js.map');
   app.import('vendor/bootstrap/bootstrap.min.css');
   app.import('bower_components/font-awesome/css/font-awesome.css');
+  app.import('bower_components/sweetalert.min/index.js');
 
   return app.toTree();
 };

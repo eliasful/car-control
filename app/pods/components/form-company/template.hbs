@@ -1,0 +1,59 @@
+<div class="modal fade" id="company" tabindex="-1" role="dialog" aria-labelledby="companyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="companyLabwl">Cadastrar Nova Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <form {{action 'save' model on='submit'}}>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="cnpj">CNPJ</label> {{input type="text" value=model.company.cnpj class="form-control" id="cnpj" placeholder="CNPJ" required="required"}}
+            </div>
+            <div class="form-group col-md-6">
+              <label for="name">Nome</label> {{input type="text" value=model.company.name class="form-control" id="name" placeholder="Nome" required="required"}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Endereço</label> {{input type="text" value=model.company.address class="form-control" id="address" placeholder="Endereço" required="required"}}
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="city">Cidade</label> {{input type="text" value=model.company.city class="form-control" id="city" placeholder="Cidade" required="required"}}
+            </div>
+            <div class="form-group col-md-4">
+              <label for="zipcode">CEP</label> {{input type="text" value=model.company.zipcode class="form-control" id="zipcode" placeholder="CEP" required="required"}}
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Usuário</h4>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="Nome">Nome</label> {{input type="text" value=model.user.name class="form-control" id="nameUser" placeholder="Nome" required="required"}}
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">E-mail</label> {{input type="email" value=model.user.email class="form-control" id="email" placeholder="E-mail" required="required" }}
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="password">Senha</label> {{input type="password" value=model.user.password class="form-control" id="password" placeholder="Senha" required="required" minlength="6"}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <i class="fa fa-close"></i> Cancelar
+        </button>
+          <button type="submit" class="btn btn-primary">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
