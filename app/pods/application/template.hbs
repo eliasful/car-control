@@ -1,0 +1,15 @@
+{{#if session.isAuthenticated}}
+  {{application-header session=session}}
+{{else}}
+  <div class="container">
+    <form class="form-signin">
+      <h2 class="form-signin-heading">Escolha a opção desejada</h2>
+      <button class="btn btn-danger" {{action "signIn" "google"}}>
+        <span class="fa fa-google"></span> Login com Google
+      </button>
+      <button class="btn btn-primary" {{action "signIn" "facebook"}}>
+        <span class="fa fa-facebook"></span> Login com Facebook
+      </button>
+    </form>
+  </div>
+{{/if}}

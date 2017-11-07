@@ -1,0 +1,24 @@
+<div class="py-md-5 pl-md-5 bd-content">
+  <h1>
+    Lista de Veículos
+    <button type="button" class="btn btn-primary btn-lg">
+      <span class="fa fa-plus"></span> Novo Veículo   
+    </button>
+  </h1>
+  <div class="row">
+    {{#each model as |item|}}
+      <div class="col-sm-3 mb-3">
+        <div class="card" style="width: 20rem;">
+          <img class="card-img-top" src="sem-image.jpeg" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{concatenate item.name ' ' item.model '/' item.year}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{concatenate item.brand ' ' item.fuel}}</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">{{item.price}}</a>
+            <a href="#" class="card-link">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

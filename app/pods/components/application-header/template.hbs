@@ -1,0 +1,46 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          {{#link-to 'home' class="nav-link" }}
+            Início
+          {{/link-to}}
+        </li>
+        <li class="nav-item">
+          {{#link-to 'vehicle' class="nav-link" }}
+            Veículos
+          {{/link-to}}
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Help</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <div class="text-center" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{#if session.currentUser.photoURL}}
+              <img src= {{session.currentUser.photoURL}} class="rounded rounded-circle profile-picture" alt= {{session.currentUser.displayName}}>
+            {{else}}
+              <img src="sem-image.jpeg" class="img-fluid img-thumbnail rounded-circle profile-picture" alt="">
+            {{/if}}
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+            <a class="dropdown-item" href="#" {{action 'signOut'}}><span class="fa fa-sign-out"></span> Sair</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="container-fluid">
+  {{outlet}}
+</div>
