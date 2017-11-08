@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('home');
   this.route('vehicle', function() {
     this.route('new');
-    this.route('edit');
+    this.route('edit', {
+      path: '/:vehicle_id'
+    });
   });
 });
 

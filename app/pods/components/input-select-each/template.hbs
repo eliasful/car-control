@@ -1,0 +1,9 @@
+<select class="form-control">
+  {{#if selected}}
+      <option selected disabled>{{selected}}</option>
+  {{else}}
+      <option>Selecione uma opção</option>
+  {{/if}}
+
+  {{yield}}
+</select>

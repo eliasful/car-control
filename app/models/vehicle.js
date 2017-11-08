@@ -9,5 +9,9 @@ export default DS.Model.extend({
   price: DS.attr('number'),
   fuel: DS.attr('string'),
   description: DS.attr('string'),
-  vehiclePhotos: DS.hasMany('vehicle-photos')
+  color: DS.attr('string'),
+  vehiclePhotos: DS.hasMany('vehicle-photos', {
+    async: true,
+    inverse: null
+  })
 });

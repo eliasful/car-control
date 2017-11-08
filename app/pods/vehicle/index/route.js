@@ -5,7 +5,7 @@ export default Ember.Route.extend({
   session: Ember.inject.service(),
   model() {
     let userId = this.get('session.currentUser.uid');
-    this.get('store').query('user', {
+    return this.get('store').query('user', {
       orderBy: 'uid',
       equalsTo: userId
     }).then((users) => {

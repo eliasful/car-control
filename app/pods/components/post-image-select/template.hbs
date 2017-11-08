@@ -1,0 +1,20 @@
+<div class="picture-uploader">
+  <div class="picture-uploader-preview" style="position: relative; z-index: 1;">
+    <ul>
+      {{#each postImages as |image index|}}
+        <li>
+          <img src= {{image.preview}}>
+          <div {{action 'deleteImage' index}} class="hover-dark" title="Clique para remover">
+            <i class="picture-uploader-del fa fa-trash"></i>
+          </div>
+        </li>
+      {{/each}}
+      <li class="width-3 no-image hover-dark" {{action 'click' (concatenate 'file-field-' elementId) }}>
+        <p class="picture-uploader-add" title="Adicionar Imagens">
+          <i class="fa fa-image"></i>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<input type='file' accept="image/*" onchange= {{action "selectImage"}} id= {{concatenate "file-field-" elementId}} class="upload-image" style="display: none;">

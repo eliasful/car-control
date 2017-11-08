@@ -1,0 +1,11 @@
+<select class="form-control">
+    {{#if selected}}
+        <option selected disabled>{{selected.name}}</option>
+    {{else}}
+        <option>Selecione uma opção</option>
+    {{/if}}
+
+    {{#each list as |item|}}
+        <option value={{item.id}}>{{item.name}}</option>
+    {{/each}}
+</select>

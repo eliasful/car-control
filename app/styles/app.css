@@ -66,3 +66,229 @@ h1 {
 .profile-picture {
   max-width: 50px
 }
+
+/*
+ * Login Page
+ */
+ .section-login {
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   display: -webkit-flex;
+   display: -moz-flex;
+   display: -ms-flex;
+   display: -o-flex;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .mystyle-signin-box {
+   width: 500px;
+   text-align: center;
+ }
+ .mystyle-signin-box a {
+   color: #fff;
+ }
+ .mystyle-signin-box .white-box {
+   background: #fff;
+   border-radius: 2px;
+   box-shadow: 0 2px 4px rgba(5, 15, 44, 0.1);
+   padding: 30px 50px;
+   color: #3f465e;
+ }
+ .mystyle-signin-box .login-title {
+   margin-top: 0;
+ }
+ .mystyle-signin-box .login-desc {
+   margin-bottom: 50px;
+ }
+ .mystyle-signin-box .social-login {
+   padding-top: 10px;
+   padding-bottom: 50px;
+   text-align: center;
+   font-size: 0;
+ }
+ .mystyle-signin-box .social-login > a {
+   font-size: 14px;
+   display: inline-block;
+   width: 40%;
+   color: #fff;
+   padding: 9px 12px;
+   line-height: 1;
+   margin: 0 10px;
+   border-radius: 999em;
+ }
+ .mystyle-signin-box .social-login > a:hover {
+   color: white;
+ }
+ .mystyle-signin-box .social-login .login-facebook {
+   background: #284b94;
+ }
+ .mystyle-signin-box .social-login .login-facebook:hover {
+   background: #10388c;
+ }
+ .mystyle-signin-box .social-login .login-google {
+   background: #dc2e19;
+ }
+ .mystyle-signin-box .social-login .login-google:hover {
+   background: #d61700;
+ }
+ .mystyle-signin-box .signin-with-credentials {
+   position: relative;
+ }
+ .mystyle-signin-box .signin-with-credentials:before {
+   content: "";
+   display: block;
+   width: 100%;
+   height: 1px;
+   background: #f2f2f2;
+   position: absolute;
+   top: 12px;
+   z-index: 1;
+ }
+ .mystyle-signin-box .signin-with-credentials span {
+   display: inline-block;
+   background: #fff;
+   position: relative;
+   z-index: 2;
+   padding: 0 4px;
+ }
+ .mystyle-signin-box .login-form {
+   padding-top: 10px;
+ }
+ .mystyle-signin-box .login-form a {
+   color: #428bca;
+ }
+ .mystyle-signin-box .login-form .form-group {
+   text-align: left;
+ }
+ .mystyle-signin-box .login-form .form-group .input-group-addon {
+   font-size: 20px;
+ }
+ .mystyle-signin-box .login-form .form-group .input-group-addon i {
+   display: inline-block;
+   width: 25px;
+ }
+ .mystyle-signin-box .login-form label {
+   font-weight: normal;
+ }
+ .mystyle-signin-box .login-form .form-control {
+   padding-top: 14px;
+   padding-bottom: 14px;
+   height: auto;
+ }
+ .mystyle-signin-box .btn-signup {
+   font-weight: bold;
+   border: 1px solid #428bca;
+   background: #428bca;
+   padding: 7px 15px;
+   display: block;
+   color: #fff;
+   text-align: center;
+   width: 100%;
+ }
+ .mystyle-signin-box .get-sign-up {
+   padding-top: 50px;
+   font-size: 18px;
+ }
+ .mystyle-signin-box .get-sign-up a {
+   color: #428bc2;
+ }
+
+ @media (max-width: 560px) {
+   .section-login {
+     position: relative;
+     left: auto;
+     right: auto;
+     top: auto;
+     bottom: auto;
+     display: block;
+   }
+
+   .mystyle-signup-box {
+     width: auto;
+     max-width: 400px;
+     margin: 20px 15px 0;
+   }
+   .mystyle-signup-box .login-title {
+     text-align: center;
+     font-size: 18px;
+   }
+ }
+
+ .create-company {
+   border-radius: 30px;
+   font-size: 14px;
+   margin-top: 10px;
+ }
+
+.picture-uploader {
+  cursor: pointer;
+  margin-top: 20px;
+  min-height: 100px;
+}
+
+.picture-uploader-add {
+  font-size: 60px;
+  color: gainsboro;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.hover-dark {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.hover-dark:hover {
+  opacity: 0.6;
+  filter: alpha(opacity=20);
+  background-color: #a0a0a0;
+  transition: background-color 0.4s;
+}
+
+.hover-dark .picture-uploader-del {
+  opacity: 0;
+}
+.hover-dark:hover .picture-uploader-del {
+  opacity: 1;
+}
+
+.picture-uploader-del {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.67);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+
+.picture-uploader-preview li {
+  float: left;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  border: 2px dashed #bbb !important;
+  margin: 2px;
+  image-rendering: -webkit-optimize-contrast;
+  list-style: none;
+}
+
+.picture-uploader-preview li>img {
+  float: left;
+  max-height: 120px;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.picture-uploader-preview li.no-image {
+  padding-bottom: 120px;
+  width: 130px;
+  font-size: 30px
+}

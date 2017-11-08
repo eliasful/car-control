@@ -1,0 +1,59 @@
+<div class="py-md-5 pl-md-5 bd-content">
+  <h1>
+    <i class="fa fa-plus"></i> {{title}}
+  </h1>
+  <form {{action 'save' model on='submit'}}>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Nome</label> {{input type="text" class="form-control" placeholder="Nome" value=model.name required="required"}}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Marca</label> {{input-select endpoint='brand' selected=model.brand}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 mb-2">
+        <label>Ano</label> {{input type="number" class="form-control" placeholder="Ano" value=model.year}}
+      </div>
+      <div class="col-md-2 mb-2">
+        <label>Modelo</label> {{input type="number" class="form-control" placeholder="Modelo" value=model.model}}
+      </div>
+      <div class="col-md-2 mb-2">
+        <label>Combustivel</label>
+        {{#input-select-each selected=model.fuel}}
+          <option value="Etanol">Etanol</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Dissel">Dissel</option>
+          <option value="Eletrico">Eletrico</option>
+          <option value="Gás">Gás</option>
+        {{/input-select-each}}
+      </div>
+      <div class="col-md-2 mb-2">
+        <label>Cor</label> {{input type="text" class="form-control" placeholder="Cor" value=model.color}}
+      </div>
+      <div class="col-md-4 mb-4">
+        <label>Preço</label>
+        <div class="input-group">
+          <span class="input-group-addon">R$</span> {{input type="number" value=model.price class="form-control" placeholder="Preço" aria-label="Amount (to the nearest dollar)"}}
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label>Descrição</label> {{textarea class="form-control" rows="3" value=model.description placeholder="Descrição"}}
+      </div>
+    </div>
+    <br>
+    <div class="pull-right">
+      {{#link-to 'vehicle.index' class="btn btn-secondary" }}
+        <i class="fa fa-close"></i> Cancelar
+      {{/link-to}}
+      <button class="btn btn-primary" type="submit">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+
+    <label>Adicionar Fotos</label>
+    <div>
+      {{post-image-select postImages=postImages}}
+    </div>
+  </form>
+</div>
