@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     this._super(...arguments);
   },
 
-  renderPreview: function(element) {
+  renderPreview(element) {
     var file = element[0].files[0];
     if (!file) {
       return false;
@@ -27,7 +27,13 @@ export default Ember.Component.extend({
       };
     };
   },
-
+  didDestroyElement() {
+    var postImages = this.get('postImages');
+    for (var i = 0; i < postImages.length; i++) {
+      postImages.removeAt(i);
+      delete postImages[i];
+    }
+  },
   actions: {
     click(item) {
       $('#' + item).click();

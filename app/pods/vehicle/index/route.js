@@ -7,12 +7,12 @@ export default Ember.Route.extend({
     let userId = this.get('session.currentUser.uid');
     return this.get('store').query('user', {
       orderBy: 'uid',
-      equalsTo: userId
+      equalTo: userId
     }).then((users) => {
       let user = users.get('firstObject');
       return this.get('store').query('vehicle', {
         orderBy: 'company',
-        equalsTo: user.get('company')
+        equalTo: user.get('company.id')
       });
     });
   }

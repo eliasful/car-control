@@ -292,3 +292,15 @@ h1 {
   width: 130px;
   font-size: 30px
 }
+
+.img-vehicle {
+  width: 320px;
+  height: 170px;
+  max-width: 320px;
+  max-height: 170px;
+}
+
+.card-vehicle {
+  height: 100px;
+  overflow-y: scroll;
+}

@@ -4,5 +4,10 @@ export default Ember.Route.extend({
   store: Ember.inject.service(),
   model() {
     return this.get('store').createRecord('vehicle');
+  },
+  actions: {
+    transition(endpoint) {
+      this.transitionTo(endpoint);
+    }
   }
 });

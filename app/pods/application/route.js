@@ -61,6 +61,7 @@ export default Ember.Route.extend({
               user.destroyRecord();
             } else {
               Ember.set(model, 'user', user);
+              window.location.reload();
             }
           }
         });
