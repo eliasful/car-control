@@ -4,6 +4,12 @@
   </h1>
   <form {{action 'save' model on='submit'}}>
     <div class="row">
+      <div class="form-group">
+        <label>Adicionar Fotos</label> {{post-image-select postImages=postImages}}
+      </div>
+    </div>
+    <br>
+    <div class="row">
       <div class="col-md-6 mb-3">
         <label>Nome</label> {{input type="text" class="form-control" placeholder="Nome" value=model.name required="required"}}
       </div>
@@ -12,29 +18,42 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2 mb-2">
-        <label>Ano</label> {{input type="number" class="form-control" placeholder="Ano" value=model.year}}
+      <div class="col-md-3 mb-2">
+        <label>Ano</label> {{input-mask mask='9999' type="text" class="form-control" placeholder="Ano" value=model.year}}
       </div>
-      <div class="col-md-2 mb-2">
-        <label>Modelo</label> {{input type="number" class="form-control" placeholder="Modelo" value=model.model}}
+      <div class="col-md-3 mb-2">
+        <label>Modelo</label> {{input-mask mask='9999' type="text" class="form-control" placeholder="Modelo" value=model.model}}
       </div>
-      <div class="col-md-2 mb-2">
+      <div class="col-md-3 mb-2">
         <label>Combustivel</label>
         {{#input-select-each selected=model.fuel}}
+          <option value="Flex">Flex</option>
           <option value="Etanol">Etanol</option>
           <option value="Gasolina">Gasolina</option>
-          <option value="Dissel">Dissel</option>
+          <option value="Diesel">Diesel</option>
           <option value="Eletrico">Eletrico</option>
           <option value="Gás">Gás</option>
         {{/input-select-each}}
       </div>
-      <div class="col-md-2 mb-2">
+      <div class="col-md-3 mb-2">
         <label>Cor</label> {{input type="text" class="form-control" placeholder="Cor" value=model.color}}
       </div>
+      <div class="col-md-2 mb-2">
+        <label>Motor</label> {{input type="text" class="form-control" placeholder="Motor" value=model.motor}}
+      </div>
+      <div class="col-md-2 mb-2">
+        <label>Placa</label> {{input-mask mask='AAA-9999' unmaskedValue=model.plate type="text" class="form-control" placeholder="Placa"}}
+      </div>
       <div class="col-md-4 mb-4">
-        <label>Preço</label>
+        <label>Preço Compra</label>
         <div class="input-group">
-          <span class="input-group-addon">R$</span> {{input type="number" value=model.price class="form-control" placeholder="Preço" aria-label="Amount (to the nearest dollar)"}}
+          <span class="input-group-addon">R$</span> {{input-mask mask='currency' unmaskedValue=model.pricePurchase class="form-control" placeholder="Preço Compra"}}
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <label>Preço Venda</label>
+        <div class="input-group">
+          <span class="input-group-addon">R$</span> {{input-mask mask='currency' unmaskedValue=model.priceSale class="form-control" placeholder="Preço Venda"}}
         </div>
       </div>
       <div class="col-md-12">
@@ -42,6 +61,13 @@
       </div>
     </div>
     <br>
+    <div class="pull-left">
+      {{#unless model.isNew}}
+        <button class="btn btn-danger" type="button" {{action 'delete' model}}>
+          <i class="fa fa-trash-o"></i> Deletar
+        </button>
+      {{/unless}}
+    </div>
     <div class="pull-right">
       {{#link-to 'vehicle.index' class="btn btn-secondary" }}
         <i class="fa fa-close"></i> Cancelar
@@ -49,11 +75,6 @@
       <button class="btn btn-primary" type="submit">
         <i class="fa fa-save"></i> Salvar
       </button>
-    </div>
-
-    <label>Adicionar Fotos</label>
-    <div>
-      {{post-image-select postImages=postImages}}
     </div>
   </form>
 </div>

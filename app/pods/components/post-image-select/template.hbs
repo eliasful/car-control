@@ -1,11 +1,11 @@
 <div class="picture-uploader">
-  <div class="picture-uploader-preview" style="position: relative; z-index: 1;">
+  <div class="picture-uploader-preview" style="position: relative; z-index: 1; margin-left: -27px;">
     <ul>
       {{#each postImages as |image index|}}
         <li>
           <img src= {{image.preview}}>
-          <div {{action 'deleteImage' index}} class="hover-dark" title="Clique para remover">
-            <i class="picture-uploader-del fa fa-trash"></i>
+          <div {{action 'openImage' index}} class="hover-dark" title="Clique para remover">
+            <i class="picture-uploader-del fa fa-external-link"></i>
           </div>
         </li>
       {{/each}}
@@ -18,3 +18,5 @@
   </div>
 </div>
 <input type='file' accept="image/*" onchange= {{action "selectImage"}} id= {{concatenate "file-field-" elementId}} class="upload-image" style="display: none;">
+<!--  -->
+{{full-image postImages=postImages}}

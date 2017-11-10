@@ -14,6 +14,10 @@ Router.map(function() {
       path: '/:vehicle_id'
     });
   });
+  this.route('user', function() {
+    this.route('new');
+    this.route('edit');
+  });
 });
 
 export default Router;

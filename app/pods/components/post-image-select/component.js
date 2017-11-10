@@ -27,13 +27,6 @@ export default Ember.Component.extend({
       };
     };
   },
-  didDestroyElement() {
-    var postImages = this.get('postImages');
-    for (var i = 0; i < postImages.length; i++) {
-      postImages.removeAt(i);
-      delete postImages[i];
-    }
-  },
   actions: {
     click(item) {
       $('#' + item).click();
@@ -45,6 +38,9 @@ export default Ember.Component.extend({
     deleteImage(index) {
       var postImages = this.get('postImages');
       postImages.removeAt(index);
+    },
+    openImage(index) {
+      $("#image").modal('show');
     },
     chooseImage() {
       if (this.get('urlPreview')) {

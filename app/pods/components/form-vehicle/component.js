@@ -16,12 +16,20 @@ export default Ember.Component.extend({
         });
     })
   },
+  willDestroyElement() {
+    var postImages = this.get('postImages');
+    for (var i = 0; i < postImages.length; i++) {
+      console.log(i);
+      postImages.removeAt(i);
+      delete postImages[i];
+    }
+  },
   actions: {
     save(model) {
       let userId = this.get('session.currentUser.uid');
       this.get('store').query('user', {
         orderBy: 'uid',
-        equalsTo: userId
+        equalTo: userId
       }).then((users) => {
         let user = users.get('firstObject');
         model.set('company', user.get('company'));
@@ -43,6 +51,7 @@ export default Ember.Component.extend({
               let vehiclePhotos = this.get('store').createRecord('vehicle-photo');
               vehiclePhotos.set('vehicle', model);
               vehiclePhotos.set('photoUrl', value.downloadURL);
+              vehiclePhotos.set('name', value.metadata.name);
               photos.pushObject(vehiclePhotos.save());
             });
 
@@ -55,6 +64,43 @@ export default Ember.Component.extend({
               });
           });
       });
+    },
+    delete(model) {
+      swal({
+          title: "Tem Certeza?",
+          text: "Se você deletar esse registro, a operação não poderá ser desfeita!",
+          icon: "warning",
+          buttons: {
+            cancel: "Não, cancelar!",
+            confirm: {
+              text: "Sim, confirmar!",
+              value: true,
+            },
+          },
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            let deletions = model.get('vehiclePhotos')
+              .map((photo) => {
+                const storageRef = this.get('firebaseApp').storage().ref();
+                let storage = storageRef.child(`/cars/${model.get('id')}/${photo.get('name')}`);
+                return [storage.delete(), photo.destroyRecord()];
+              });
+
+            Ember.RSVP.all(deletions)
+              .then(() => {
+                return model.destroyRecord()
+                  .then(() => {
+                    swal('Sucesso!', 'Registro deletado com sucesso!', 'success');
+                    this.sendAction('transition', 'vehicle.index');
+                  })
+                  .catch((err) => {
+                    swal('Ops!', 'Não foi possível deletar o registro: ' + err, 'error');
+                  });
+              });
+          }
+        });
     }
   }
 });

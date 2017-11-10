@@ -4,7 +4,11 @@
     {{#link-to 'vehicle.new' class="btn btn-primary btn-lg"}}
       <i class="fa fa-plus"></i> Novo Veículo
     {{/link-to}}
+    <div class="float-right col-md-6 align-middle">
+      <input class="form-control" type="text" name="" value="" placeholder="Pesquisar...">
+    </div>
   </h1>
+  <hr class="my-4">
   <div class="row">
     {{#each model as |item|}}
       <div class="col-sm-3 mb-3">
@@ -39,12 +43,18 @@
             </a>
           </div>
           <div class="card-body">
-            <h4 class="card-title">{{concatenate item.name ' ' item.year '/' item.model}}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">{{concatenate item.brand.name ' - ' item.fuel}}</h6>
+            <h4 class="card-title">{{concatenate item.brand.name ' ' item.name}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{concatenate 'Motor ' item.motor }}
+              <br>
+              {{concatenate 'Ano/Modelo  ' item.year '/' item.model}}
+            </h6>
             <p class="card-text card-vehicle">
-              {{item.description}}
+              {{concatenate 'Combustível: ' item.fuel}}
+              <br> {{concatenate 'Cor: ' item.color}}
+              <br> {{item.description}}
             </p>
-            <span class="card-link"><b>R$ {{item.price}}</b></span>
+            <span class="card-link"><b>R{{format item.priceSale 'currency'}}</b></span>
             {{#link-to 'vehicle.edit' item.id class="card-link" }}
               Ver Detalhes
             {{/link-to}}
