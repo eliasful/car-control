@@ -19,7 +19,6 @@ export default Ember.Component.extend({
   willDestroyElement() {
     var postImages = this.get('postImages');
     for (var i = 0; i < postImages.length; i++) {
-      console.log(i);
       postImages.removeAt(i);
       delete postImages[i];
     }

@@ -1,16 +1,68 @@
 <div class="py-md-5 pl-md-5 bd-content">
-  <h1>
+  <h2>
     <i class="fa fa-list-ul"></i> Lista de Veículos
-    {{#link-to 'vehicle.new' class="btn btn-primary btn-lg"}}
+    {{#link-to 'vehicle.new' class="btn btn-primary"}}
       <i class="fa fa-plus"></i> Novo Veículo
     {{/link-to}}
-    <div class="float-right col-md-6 align-middle">
-      <input class="form-control" type="text" name="" value="" placeholder="Pesquisar...">
+    <div class="pull-right">
+      <a class="btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa fa-filter"></i> Filtar Registros
+      </a>
     </div>
-  </h1>
+  </h2>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-3 mb-3 text-center">
+            <label class="custom-control custom-checkbox">
+              {{input type="checkbox" class="custom-control-input" checked=filter.isName}}
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Buscar por Nome do Veículo</span>
+            </label>
+          </div>
+          <div class="col-md-3 mb-3 text-center">
+            <label class="custom-control custom-checkbox">
+              {{input type="checkbox" class="custom-control-input" checked=filter.isBrand}}
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Buscar por Marca</span>
+            </label>
+          </div>
+          <div class="col-md-3 mb-3 text-center">
+            <label class="custom-control custom-checkbox">
+              {{input type="checkbox" class="custom-control-input" checked=filter.isPrices}}
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Buscar por Preço</span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3" id="div-name">
+            <label>Nome do Veículo</label> {{input type="text" class="form-control" placeholder="Nome do Veículo" value=filter.name}}
+          </div>
+          <div class="col-md-3 mb-3" id="div-brand">
+            <label>Marca</label> {{input-select endpoint='brand' selected=filter.brand}}
+          </div>
+          <div id="div-prices" class="col-md-4 mb-4 row">
+            <div class="col-md-6 mb-6">
+              <label>Preços de</label> {{input-mask mask='currency' class="form-control" value=filter.priceStart}}
+            </div>
+            <div class="col-md-6 mb-6">
+              <label>até</label> {{input-mask mask='currency' class="form-control" value=filter.priceEnd}}
+            </div>
+          </div>
+        </div>
+        <div class="pull-right">
+          <button class="btn" type="button" {{action 'filter' filter model}}>
+            <i class="fa fa-filter"></i> Aplicar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
   <hr class="my-4">
   <div class="row">
-    {{#each model as |item|}}
+    {{#each modelFilter as |item|}}
       <div class="col-sm-3 mb-3">
         <div class="card" style="width: 20rem;">
           <div id= {{item.id}} class="carousel slide" data-ride="carousel">
