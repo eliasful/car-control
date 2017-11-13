@@ -6,11 +6,12 @@ export default Ember.Route.extend({
   filter: {
     name: null,
     brand: null,
+    color: null,
+    year: null,
+    model: null,
+    motor: null,
     priceStart: null,
-    priceEnd: null,
-    isName: true,
-    isBrand: true,
-    isPrices: true
+    priceEnd: null
   },
   model() {
     let userId = this.get('session.currentUser.uid');

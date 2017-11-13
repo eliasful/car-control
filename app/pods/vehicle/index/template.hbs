@@ -14,46 +14,35 @@
     <div class="card card-body">
       <form>
         <div class="row">
-          <div class="col-md-3 mb-3 text-center">
-            <label class="custom-control custom-checkbox">
-              {{input type="checkbox" class="custom-control-input" checked=filter.isName}}
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Buscar por Nome do Veículo</span>
-            </label>
-          </div>
-          <div class="col-md-3 mb-3 text-center">
-            <label class="custom-control custom-checkbox">
-              {{input type="checkbox" class="custom-control-input" checked=filter.isBrand}}
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Buscar por Marca</span>
-            </label>
-          </div>
-          <div class="col-md-3 mb-3 text-center">
-            <label class="custom-control custom-checkbox">
-              {{input type="checkbox" class="custom-control-input" checked=filter.isPrices}}
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Buscar por Preço</span>
-            </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 mb-3" id="div-name">
+          <div class="col-md-4 mb-4" id="div-name">
             <label>Nome do Veículo</label> {{input type="text" class="form-control" placeholder="Nome do Veículo" value=filter.name}}
           </div>
-          <div class="col-md-3 mb-3" id="div-brand">
+          <div class="col-md-4 mb-4" id="div-brand">
             <label>Marca</label> {{input-select endpoint='brand' selected=filter.brand}}
           </div>
           <div id="div-prices" class="col-md-4 mb-4 row">
             <div class="col-md-6 mb-6">
-              <label>Preços de</label> {{input-mask mask='currency' class="form-control" value=filter.priceStart}}
+              <label>Preços de</label> {{input-mask mask='currency' class="form-control" unmaskedValue=filter.priceStart}}
             </div>
             <div class="col-md-6 mb-6">
-              <label>até</label> {{input-mask mask='currency' class="form-control" value=filter.priceEnd}}
+              <label>até</label> {{input-mask mask='currency' class="form-control" unmaskedValue=filter.priceEnd}}
             </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label>Cor</label> {{input type="text" class="form-control" placeholder="Cor" value=filter.color}}
+          </div>
+          <div class="col-md-3 mb-3">
+            <label>Ano</label> {{input-mask mask='9999' type="text" class="form-control" placeholder="Ano" value=filter.year}}
+          </div>
+          <div class="col-md-3 mb-3">
+            <label>Modelo</label> {{input-mask mask='9999' type="text" class="form-control" placeholder="Modelo" value=filter.model}}
+          </div>
+          <div class="col-md-3 mb-3">
+            <label>Motor</label> {{input type="text" class="form-control" placeholder="Motor" value=filter.motor}}
           </div>
         </div>
         <div class="pull-right">
-          <button class="btn" type="button" {{action 'filter' filter model}}>
+          <button class="btn" type="button" {{action 'filter' filter}}>
             <i class="fa fa-filter"></i> Aplicar
           </button>
         </div>

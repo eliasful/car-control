@@ -1,8 +1,8 @@
 <select class="form-control">
+    <option>Sem Registro</option>
+
     {{#if selected}}
         <option selected disabled>{{selected.name}}</option>
-    {{else}}
-        <option>Selecione uma opção</option>
     {{/if}}
 
     {{#each list as |item|}}

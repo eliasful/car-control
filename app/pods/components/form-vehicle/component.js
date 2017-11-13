@@ -25,6 +25,16 @@ export default Ember.Component.extend({
   },
   actions: {
     save(model) {
+      if (!model.get('brand.id')) {
+        swal('Informe uma marca!');
+        return;
+      }
+
+      if (!model.get('priceSale')) {
+        swal('Informe o preço de venda!');
+        return;
+      }
+
       let userId = this.get('session.currentUser.uid');
       this.get('store').query('user', {
         orderBy: 'uid',

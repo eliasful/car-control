@@ -4,39 +4,48 @@ export default Ember.Controller.extend({
   modelFilter: Ember.computed('model', function() {
     return this.get('model');
   }),
-  pricesObserver: Ember.observer('filter.isPrices', function() {
-    if (this.get('filter.isPrices'))
-      $("#div-prices input").prop("disabled", false);
-    else
-      $("#div-prices input").prop("disabled", true);
-  }),
-  brandObserver: Ember.observer('filter.isBrand', function() {
-    if (this.get('filter.isBrand'))
-      $("#div-brand select").prop("disabled", false);
-    else
-      $("#div-brand select").prop("disabled", true);
-  }),
-  nameObserver: Ember.observer('filter.isName', function() {
-    if (this.get('filter.isName'))
-      $("#div-name input").prop("disabled", false);
-    else
-      $("#div-name input").prop("disabled", true);
-  }),
   actions: {
-    filter(data, model) {
-      //TODO trocar filtro para radio
-      let filtered = [];
-      if (data.isBrand && data.brand) {
-        filtered = model.filterBy('brand.id', data.brand.get('id'));
-      } else if (data.isName && data.name) {
-        filtered = model.filterBy('name', data.name);
-        // } else if (data.isPrices) {
-        // filtered = model.filterBy('property', value);
-      } else {
-        filtered = this.get('model');
+    filter(data) {
+      let filtered = this.get('model');
+
+      if (data.brand) {
+        filtered = filtered.filterBy('brand.id', data.brand.get('id'));
+      }
+
+      if (data.name) {
+        filtered = filtered.filter(item => filter(item.get('name'), data.name));
+      }
+
+      if (data.priceStart > 0 && data.priceEnd > 0) {
+        filtered = filtered.filter(item =>
+          item.get('priceSale') >= data.priceStart &&
+          item.get('priceSale') <= data.priceEnd);
+      }
+
+      if (data.color) {
+        filtered = filtered.filter(item => filter(item.get('color'), data.color));
+      }
+
+      if (data.year) {
+        filtered = filtered.filter(item => filter(String(item.get('year')), data.year));
+      }
+
+      if (data.model) {
+        filtered = filtered.filter(item => filter(item.get('model'), data.model));
+      }
+
+      if (data.motor) {
+        filtered = filtered.filter(item => filter(item.get('motor'), data.motor));
       }
 
       this.set('modelFilter', filtered);
     }
   }
 });
+
+function filter(item, attr) {
+  if (item)
+    return item.toUpperCase().includes(attr.toUpperCase());
+
+  return false;
+}
