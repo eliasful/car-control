@@ -351,6 +351,10 @@ h1 {
   color: #4285f4;
 }
 
+.calendar-past {
+  color: #9e9e9e;
+}
+
 .calendar-hour {
   min-height: 40px;
 }

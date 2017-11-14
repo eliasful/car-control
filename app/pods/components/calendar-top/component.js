@@ -11,13 +11,14 @@ export default Ember.Component.extend({
     for (let i = 2; i > 0; i--) {
       let day = moment().date(today - i);
       this.get('days').pushObject({
+        today: 0, //não, passado
         month: day.format('DD'),
         resume: day.format('ddd')
       });
     }
     //Adiciona hoje
     this.get('days').pushObject({
-      today: true,
+      today: 1, //sim
       month: today,
       resume: moment().date(today).format('ddd')
     });
@@ -25,6 +26,7 @@ export default Ember.Component.extend({
     for (let i = 1; i <= 4; i++) {
       let day = moment().date(today + i);
       this.get('days').pushObject({
+        today: 2, //não, futuro
         month: day.format('DD'),
         resume: day.format('ddd')
       });
