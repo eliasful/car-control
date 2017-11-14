@@ -1,11 +1,23 @@
-<div class="col-12 pt-3 row">
-  <div class="col">
-    1 of 3
-  </div>
-  <div class="col">
-    2 of 3
-  </div>
-  <div class="col">
-    3 of 3
-  </div>
+<div class="row calendar-header">
+  <div class="col calendar-week calendar-column-white"></div>
+  {{#each days as |day|}}
+    <div class= {{is-today "col calendar-week calendar-week-days" day.today}}>
+      <div class="calendar-resume">{{day.resume}}</div>
+      <div class="calendar-day">{{day.month}}</div>
+    </div>
+  {{/each}}
+</div>
+<div class="calendar-body">
+  {{#each hours as |hour index|}}
+    <div class="row">
+      <div class="col calendar-column-white calendar-column-hour text-center">
+        <label>{{to-hour index}}</label>
+      </div>
+      {{#each days as |day|}}
+        <div class= {{is-today "col calendar-week calendar-hour" day.today}}>
+
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
 </div>

@@ -304,3 +304,63 @@ h1 {
   height: 100px;
   overflow-y: scroll;
 }
+
+.calendar-header {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  top: 65px;
+}
+
+.calendar-body {
+  margin-top: 95px;
+}
+
+.calendar-week {
+  font-weight: 400;
+  margin: 0;
+  border-bottom: #e0e0e0 1px solid;
+  border-right: #e0e0e0 1px solid;
+  padding-bottom: 20px;
+}
+
+.calendar-week-days {
+  border-top: #e0e0e0 1px solid;
+}
+
+.calendar-day {
+  font-size: 40px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.calendar-resume {
+  font-size: 12px;
+  line-height: 32px;
+  text-transform: capitalize;
+}
+
+.calendar-today {
+  background-color: #f5f5f5;
+  color: #4285f4;
+}
+
+.calendar-hour {
+  min-height: 40px;
+}
+
+.calendar-column-white {
+  max-width: 45px;
+}
+
+.calendar-column-hour {
+  font-size: 10px;
+  color: #212121;
+  margin-top: -8px;
+}
