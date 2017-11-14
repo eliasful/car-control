@@ -24,7 +24,8 @@ module.exports = function(defaults) {
   app.import('vendor/bootstrap/bootstrap.min.css');
   app.import('bower_components/font-awesome/css/font-awesome.css');
   app.import('bower_components/sweetalert.min/index.js');
-  app.import('bower_components/lodash/dist/lodash.min.js');
+  app.import('bower_components/moment/moment.js');
+  app.import('bower_components/moment/locale/pt-br.js');
 
   return app.toTree();
 };

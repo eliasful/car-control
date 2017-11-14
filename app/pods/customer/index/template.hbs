@@ -1,0 +1,78 @@
+<div class="py-md-5 pl-md-5 bd-content">
+  <h2>
+    <i class="fa fa-list-ul"></i> Lista de Clientes
+    {{#link-to 'customer.new' class="btn btn-primary"}}
+      <i class="fa fa-plus"></i> Novo Cliente
+    {{/link-to}}
+    <div class="pull-right">
+      <a class="btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa fa-filter"></i> Filtar Registros
+      </a>
+    </div>
+  </h2>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-4 mb-4" id="div-name">
+            <label>Nome</label> {{input type="text" class="form-control" placeholder="Nome" value=filter.name}}
+          </div>
+          <div class="col-md-4 mb-4">
+            <label>Cidade</label> {{input type="text" class="form-control" placeholder="Cidade" value=filter.city}}
+          </div>
+        </div>
+        <div class="pull-right">
+          <button class="btn" type="button" {{action 'filter' filter}}>
+            <i class="fa fa-filter"></i> Aplicar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="bd-example">
+        <table class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Telefone 1</th>
+              <th>Telefone 2</th>
+              <th>Endereço</th>
+              <th>Cidade</th>
+              <th>E-mail</th>
+              <th class="text-right">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each modelFilter as |item|}}
+              <tr>
+                <td class="align-middle">{{item.name}}</td>
+                <td class="align-middle">{{item.phone}}</td>
+                <td class="align-middle">{{item.cellPhone}}</td>
+                <td class="align-middle">{{item.address}}</td>
+                <td class="align-middle">{{item.city}}</td>
+                <td class="align-middle">{{item.email}}</td>
+                <td class="text-right">
+                  <button {{action 'delete' item}} type="button" class="btn btn-outline-danger" title="Remover Registro">
+                    <i class="fa fa-close"></i>
+                  </button>
+                  {{#link-to 'customer.edit' item type="button" class="btn btn-outline-primary" title="Editar Registro" }}
+                    <i class="fa fa-edit"></i>
+                  {{/link-to}}
+                </td>
+              </tr>
+              {{else}}
+                <tr>
+                  <td colspan="7" class="text-center">
+                    Nenhum Registro Encontrado
+                  </td>
+                </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

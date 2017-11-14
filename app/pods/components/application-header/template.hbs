@@ -21,17 +21,19 @@
           {{/link-to}}
         </li>
         <li class="nav-item">
-          {{#link-to 'vehicle' class="nav-link" }}
+          {{#link-to 'vehicle.index' class="nav-link" }}
             Veículos
           {{/link-to}}
         </li>
         <li class="nav-item">
-          {{#link-to 'user' class="nav-link" }}
-            Usuários
+          {{#link-to 'customer.index' class="nav-link" }}
+            Clientes
           {{/link-to}}
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
+          {{#link-to 'appointment.index' class="nav-link" }}
+            Compromissos
+          {{/link-to}}
         </li>
       </ul>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
@@ -45,6 +47,9 @@
           </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
             <a class="dropdown-item" href="#" {{action 'signOut'}}><span class="fa fa-sign-out"></span> Sair</a>
+            {{#link-to 'user' class="dropdown-item" }}
+              <span class="fa fa-user"></span> Usuários
+            {{/link-to}}
           </div>
         </li>
       </ul>

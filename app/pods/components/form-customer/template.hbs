@@ -1,0 +1,37 @@
+<div class="py-md-5 pl-md-5 bd-content">
+  <h2>
+    <i class="fa fa-plus"></i> {{title}}
+  </h2>
+  <form {{action 'save' model on='submit'}}>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Nome</label> {{input type="text" class="form-control" placeholder="Nome" value=model.name required="required"}}
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Telefone 1</label> {{input type="text" class="form-control" placeholder="Telefone 1" value=model.phone required="required"}}
+      </div>
+      <div class="col-md-3 mb-3">
+        <label>Telefone 2</label> {{input type="text" class="form-control" placeholder="Telefone 2" value=model.cellPhone}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <label>Endereço</label> {{input type="text" class="form-control" placeholder="Endereço" value=model.address}}
+      </div>
+      <div class="col-md-4 mb-4">
+        <label>Cidade</label> {{input type="text" class="form-control" placeholder="Cidade" value=model.city}}
+      </div>
+      <div class="col-md-4 mb-4">
+        <label>E-mail</label> {{input type="email" class="form-control" placeholder="E-mail" value=model.email}}
+      </div>
+    </div>
+    <div class="pull-right">
+      {{#link-to 'customer.index' class="btn btn-secondary" }}
+        <i class="fa fa-close"></i> Cancelar
+      {{/link-to}}
+      <button class="btn btn-primary" type="submit">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+    </div>
+  </form>
+</div>

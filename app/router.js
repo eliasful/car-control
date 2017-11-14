@@ -18,6 +18,18 @@ Router.map(function() {
     this.route('new');
     this.route('edit');
   });
+  this.route('customer', function() {
+    this.route('new');
+    this.route('edit', {
+      path: '/:customer_id'
+    });
+  });
+  this.route('appointment', function() {
+    this.route('new');
+    this.route('edit', {
+      path: '/:appointment_id'
+    });
+  });
 });
 
 export default Router;
