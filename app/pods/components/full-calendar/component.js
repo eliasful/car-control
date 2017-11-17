@@ -4,6 +4,15 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
   appointment: {},
+  allDayObserver: Ember.observer('model.allDay', function() {
+    if (this.get('model.allDay')) {
+      $("#day").hide();
+      $("#allDay").show();
+    } else {
+      $("#day").show();
+      $("#allDay").hide();
+    }
+  }),
   didInsertElement() {
     let that = this;
     $('#calendar').fullCalendar({
@@ -40,7 +49,8 @@ export default Ember.Component.extend({
             title: item.get('title'),
             start: item.get('start'),
             end: item.get('end'),
-            className: item.get('className')
+            className: item.get('className'),
+            allDay: item.get('allDay'),
           };
           $('#calendar').fullCalendar('renderEvent', appointment);
         });

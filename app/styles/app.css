@@ -486,3 +486,19 @@ h2::first-letter {
   border: 0px;
   border-radius: 0px;
 }
+
+.checkbox-modal {
+  left: 26px;
+  color: #868ea3;
+}
+
+.color-modal {
+  left: 11px;
+  color: #868ea3;
+  cursor: pointer;
+}
+
+.teste:hover {
+  font-size: 20px;
+  transition: font-size 0.4s;
+}

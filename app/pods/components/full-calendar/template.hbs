@@ -12,7 +12,7 @@
             {{input type="text" value=model.title class="form-control form-control-lg form-control-md" placeholder="Adicionar Título"}}
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-12" id="day">
           <div class="input-group">
             <div class="input-group-addon input-group-addon-md">
               <i class="fa fa-calendar"></i>
@@ -22,10 +22,29 @@
             {{input-mask mask="99/99/9999 99:99" type="text" value=model.end class="form-control form-control-md date" placeholder="Data de Conclusão"}}
           </div>
         </div>
+        <div class="col-12" id="allDay" style="display: none;">
+          <div class="input-group">
+            <div class="input-group-addon input-group-addon-md">
+              <i class="fa fa-calendar"></i>
+            </div>
+            {{input-mask mask="99/99/9999" type="text" value=model.start class="form-control form-control-md date" placeholder="Data de Início"}}
+            <!--  -->
+            {{input-mask mask="99/99/9999" type="text" value=model.end class="form-control form-control-md date" placeholder="Data de Conclusão"}}
+          </div>
+        </div>
+        <label class="custom-control custom-checkbox checkbox-modal">
+          {{input type="checkbox" class="form-control custom-control-input" checked=model.allDay}}
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">dia inteiro?</span>
+        </label>
+        <br>
+        <div class="col-12 color-modal">
+          {{color-select model=model item='className'}}
+        </div>
         <br>
         <div class="pull-right">
           <button type="button" class="btn btn-outline-secondary form-control-md" data-dismiss="modal">
-            <i class="fa fa-close"></i>
+              <i class="fa fa-close"></i>
           </button>
           <button type="button" class="btn btn-primary" {{action 'insert' model}}>
             <i class="fa fa-check"></i> Salvar
