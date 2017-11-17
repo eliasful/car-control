@@ -15,7 +15,16 @@
       </div>
       {{#each days as |day|}}
         <div class= {{is-today "col calendar-week calendar-hour" day.today}}>
-
+          {{#each day.events as |event|}}
+            <div class="calendar-event">
+              <div aria-hidden="true" class="lFe10c ">
+                <div class="calendar-event-title">
+                  <b>{{event.title}}</b>
+                </div>
+                <div class="calendar-event-title">04:00 – 05:00</div>
+              </div>
+            </div>
+          {{/each}}
         </div>
       {{/each}}
     </div>

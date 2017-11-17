@@ -27,5 +27,9 @@ module.exports = function(defaults) {
   app.import('bower_components/moment/moment.js');
   app.import('bower_components/moment/locale/pt-br.js');
 
+  app.import('bower_components/fullcalendar/dist/fullcalendar.min.css');
+  app.import('bower_components/fullcalendar/dist/fullcalendar.min.js');
+  app.import('bower_components/fullcalendar/dist/locale/pt-br.js');
+
   return app.toTree();
 };

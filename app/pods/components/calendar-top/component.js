@@ -20,7 +20,10 @@ export default Ember.Component.extend({
     this.get('days').pushObject({
       today: 1, //sim
       month: today,
-      resume: moment().date(today).format('ddd')
+      resume: moment().date(today).format('ddd'),
+      events: [{
+        title: 'Evento TOP 1'
+      }]
     });
     //Adiciona dois dias à frente
     for (let i = 1; i <= 4; i++) {

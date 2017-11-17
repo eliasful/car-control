@@ -310,7 +310,10 @@ h1 {
   width: 100%;
   z-index: 2;
   background-color: white;
-  top: 65px;
+  /*fullcalendar*/
+  top: 75px;
+  /*overflow: scroll;
+  height: 650px;*/
 }
 
 .calendar-body {
@@ -359,6 +362,16 @@ h1 {
   min-height: 40px;
 }
 
+.calendar-today.calendar-hour:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+.calendar-hour:hover {
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
 .calendar-column-white {
   max-width: 45px;
 }
@@ -367,4 +380,109 @@ h1 {
   font-size: 10px;
   color: #212121;
   margin-top: -8px;
+}
+
+.calendar-event {
+  background-color: rgb(179, 225, 247);
+  max-height: 35px;
+      padding: 1px 0px 0px 10px;
+}
+
+.calendar-event-title {
+  font-size: 12px;
+  line-height: 15px;
+  overflow: hidden;
+  padding-top: 2px;
+  color: rgba(0,0,0,0.38);
+}
+
+.btn-radius {
+  border-radius: 25px;
+}
+
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+  color: #757575;
+  float: left;
+  font-weight: 400;
+  margin: 0;
+  font-size: 14px;
+  padding-left: 8px;
+}
+
+.fc-day-header.fc-widget-header {
+  color: #757575;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 7px;
+  font-weight: normal;
+}
+
+.fc-toolbar.fc-header-toolbar
+.fc-center
+h2 {
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+.fc-toolbar.fc-header-toolbar
+.fc-center
+h2::first-letter {
+  text-transform: capitalize;
+}
+
+.fc-state-default,
+.fc-state-default.fc-corner-left,
+.fc-state-default.fc-corner-right {
+  border-radius: 100px;
+  color: #868e96;
+  background-color: transparent;
+  background-image: none;
+  border-width: 0;
+  text-transform: uppercase;
+}
+
+.fc-state-default:hover,
+.fc-state-default.fc-corner-left:hover,
+.fc-state-default.fc-corner-right:hover {
+  color: #fff;
+  background-color: #868e96;
+  border-color: #868e96;
+}
+
+.fc-content {
+  color: white;
+}
+
+.fc-toolbar.fc-header-toolbar .fc-left {
+  margin-left: 70px;
+}
+
+.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right.fc-state-disabled {
+  right: 160px;
+}
+
+.fc-toolbar.fc-header-toolbar .fc-center{
+  font-size: 20px;
+  font-weight: 400;
+  opacity: .54;
+  white-space: nowrap;
+  line-height: 23px;
+}
+
+.fc-day.fc-widget-content:hover {
+  background-color: #f5f5f5;
+}
+
+.form-control-md {
+  border: 0px;
+}
+
+.form-control-md:focus {
+  box-shadow: none;
+}
+
+.input-group-addon-md {
+  background-color: transparent;
+  border: 0px;
+  border-radius: 0px;
 }
